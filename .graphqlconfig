@@ -1,0 +1,8 @@
+{
+  "schemaPath": "data/schema.graphql",
+  "extensions": {
+    "endpoints": {
+      "default": "https://x8vxn499l.lp.gql.zone/graphql"
+    }
+  }
+}

@@ -1,18 +1,28 @@
 {
   "name": "graphql-relay-getting-started",
-	"version": "0.1.0",
-	"author": "Thanh Tran <trongthanh@gmail.com>",
-	"description": "Source code for my GraphQL & Relay workshop",
-	"license": "MIT",
+  "version": "0.1.0",
+  "author": "Thanh Tran <trongthanh@gmail.com>",
+  "description": "Source code for my GraphQL & Relay workshop",
+  "license": "MIT",
   "dependencies": {
     "react": "^15.6.2",
     "react-dom": "^15.6.2",
+    "react-relay": "^1.4.0",
+    "react-router": "^3",
+    "react-router-relay": "^0.14.0",
     "react-scripts": "1.0.13"
   },
   "scripts": {
+		"get-schema": "graphql get-schema default",
+    "relay": "relay-compiler --src ./src --schema ./data/schema.graphql",
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
     "eject": "react-scripts eject"
+  },
+  "devDependencies": {
+    "babel-plugin-relay": "^1.4.0",
+    "graphql-cli": "^1.0.1",
+    "relay-compiler": "^1.4.0"
   }
 }

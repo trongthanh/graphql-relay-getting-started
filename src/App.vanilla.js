@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import VanillaContainer from './components/VanillaContainer';
 
 import './App.css';
 
@@ -13,7 +14,7 @@ class App extends Component {
 					<h2>Welcome to GraphQL</h2>
 				</div>
 				<main>
-					{this.props.children}
+					<VanillaContainer />
 				</main>
 			</div>
 		);

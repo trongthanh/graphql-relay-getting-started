@@ -1,0 +1,32 @@
+# source: https://x8vxn499l.lp.gql.zone/graphql
+# timestamp: Tue Sep 26 2017 16:15:41 GMT+0700 (+07)
+
+type Author {
+  id: Int!
+  firstName: String
+  lastName: String
+  posts: [Post]
+}
+
+type Mutation {
+  upvotePost(postId: Int!): Post
+  newPost(input: PostInput): Post
+}
+
+type Post {
+  id: Int!
+  title: String
+  author: Author
+  votes: Int
+}
+
+# Note the input type
+input PostInput {
+  title: String!
+  authorId: Int!
+}
+
+type Query {
+  posts(limit: Int): [Post]
+  author(id: Int!): Author
+}
