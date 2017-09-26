@@ -1,8 +1,8 @@
 # source: https://x8vxn499l.lp.gql.zone/graphql
-# timestamp: Tue Sep 26 2017 16:15:41 GMT+0700 (+07)
+# timestamp: Tue Sep 26 2017 17:08:07 GMT+0700 (+07)
 
 type Author {
-  id: Int!
+  id: ID!
   firstName: String
   lastName: String
   posts: [Post]
@@ -14,7 +14,7 @@ type Mutation {
 }
 
 type Post {
-  id: Int!
+  id: ID!
   title: String
   author: Author
   votes: Int
@@ -23,7 +23,7 @@ type Post {
 # Note the input type
 input PostInput {
   title: String!
-  authorId: Int!
+  authorId: ID!
 }
 
 type Query {

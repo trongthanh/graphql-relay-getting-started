@@ -1,6 +1,6 @@
 /**
  * @flow
- * @relayHash 685eabcd6f08353f51fdb87e7032f0e1
+ * @relayHash 4339350fe579a208a0a300229fa63bef
  */
 
 /* eslint-disable */
@@ -11,7 +11,7 @@
 import type {ConcreteBatch} from 'relay-runtime';
 export type ListPageQueryResponse = {|
   +posts: ?$ReadOnlyArray<?{|
-    +id: number;
+    +id: string;
     +title: ?string;
     +author: ?{|
       +firstName: ?string;
@@ -31,6 +31,7 @@ query ListPageQuery {
     author {
       firstName
       lastName
+      id
     }
     votes
   }
@@ -157,6 +158,13 @@ const batch /*: ConcreteBatch*/ = {
                 "args": null,
                 "name": "lastName",
                 "storageKey": null
+              },
+              {
+                "kind": "ScalarField",
+                "alias": null,
+                "args": null,
+                "name": "id",
+                "storageKey": null
               }
             ],
             "storageKey": null
@@ -173,7 +181,7 @@ const batch /*: ConcreteBatch*/ = {
       }
     ]
   },
-  "text": "query ListPageQuery {\n  posts {\n    id\n    title\n    author {\n      firstName\n      lastName\n    }\n    votes\n  }\n}\n"
+  "text": "query ListPageQuery {\n  posts {\n    id\n    title\n    author {\n      firstName\n      lastName\n      id\n    }\n    votes\n  }\n}\n"
 };
 
 module.exports = batch;

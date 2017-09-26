@@ -10,7 +10,7 @@ class CreatePage extends React.Component {
 	render() {
 		return (
 			<div>
-				Create Song
+				Create Song. Not done yet. :-(
 			</div>
 		);
 	}

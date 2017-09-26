@@ -11,14 +11,14 @@ import { makeExecutableSchema } from 'graphql-tools';
 
 const typeDefs = `
 	type Author {
-		id: Int!
+		id: ID!
 		firstName: String
 		lastName: String
 		posts: [Post] # the list of Posts by this author
 	}
 
 	type Post {
-		id: Int!
+		id: ID!
 		title: String
 		author: Author
 		votes: Int
@@ -27,16 +27,16 @@ const typeDefs = `
 	# Note the input type
 	input PostInput {
 		title: String!
-		authorId: Int!
+		authorId: ID!
 	}
 
 	type Query {
 		posts(limit: Int): [Post]
-		author(id: Int!): Author
+		author(id: ID!): Author
 	}
 
 	type Mutation {
-		upvotePost (postId: Int!): Post
+		upvotePost (postId: ID!): Post
 		newPost (input: PostInput): Post
 	}
 `;
@@ -83,7 +83,7 @@ const resolvers = {
 			posts.push({
 				id,
 				title: input.title,
-				authorId: input.authorId,
+				authorId: String(input.authorId),
 				votes: 0,
 			});
 
@@ -98,16 +98,16 @@ export const schema = makeExecutableSchema({
 });
 
 const authors = [
-	{ id: 1, firstName: 'Nhân', lastName: 'Trúc' },
-	{ id: 2, firstName: 'Phương', lastName: 'Bích' },
-	{ id: 3, firstName: 'Hiếu', lastName: 'Lê' },
+	{ id: '1', firstName: 'Nhân', lastName: 'Trúc' },
+	{ id: '2', firstName: 'Phương', lastName: 'Bích' },
+	{ id: '3', firstName: 'Hiếu', lastName: 'Lê' },
 ];
 
 const posts = [
-	{ id: 1, authorId: 1, title: 'Ngồi Hát Đỡ Buồn', votes: 2 },
-	{ id: 2, authorId: 1, title: 'Thật Bất Ngờ', votes: 3 },
-	{ id: 3, authorId: 2, title: 'Đưa Em Đi Khắp Thế Gian', votes: 1 },
-	{ id: 4, authorId: 3, title: 'Ngày Mai Em Đi', votes: 7 },
+	{ id: '1', authorId: '1', title: 'Ngồi Hát Đỡ Buồn', votes: 2 },
+	{ id: '2', authorId: '1', title: 'Thật Bất Ngờ', votes: 3 },
+	{ id: '3', authorId: '2', title: 'Đưa Em Đi Khắp Thế Gian', votes: 1 },
+	{ id: '4', authorId: '3', title: 'Ngày Mai Em Đi', votes: 7 },
 ];
 
 
